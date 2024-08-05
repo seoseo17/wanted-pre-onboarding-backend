@@ -19,6 +19,10 @@ public class Company {
 
     private String name;
 
+    private String nation;
+
+    private String region;
+
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RecruitmentNotice> recruitmentNotices;
 }

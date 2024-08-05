@@ -30,10 +30,6 @@ public class RecruitmentNotice {
 
     private String languageUsed;
 
-    private String nation;
-
-    private String region;
-
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
