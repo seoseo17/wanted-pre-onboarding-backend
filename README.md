@@ -34,3 +34,30 @@
     "data": null
 }
 ```
+
+### 채용공고 수정
+**requestBody**
+```
+{
+    "position" : "백엔드 주니어",
+    "compensation": 500,
+    "content": "적극적인 뱍앤드를 찾고 있습니다.",
+    "languageUsed" : "python"
+}
+```
+
+**responseBody**
+```
+{
+    "status": "SUCCESS",
+    "message": "공고가 수정되었습니다.",
+    "data": 2
+}
+
+//noticeId가 존재하지 않을 시
+{
+    "status": "ERROR",
+    "message": "채용공고 정보가 존재하지 않습니다",
+    "data": null
+}
+```
