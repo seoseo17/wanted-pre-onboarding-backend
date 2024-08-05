@@ -117,3 +117,28 @@
     ]
 }
 ```
+
+### 채용공고 상세
+`GET http://localhost:8080/api/recruitment-notice/8 `
+
+**responseBody**
+```
+{
+    "status": "SUCCESS",
+    "message": null,
+    "data": {
+        "noticeId": 7,
+        "companyName": "구글",
+        "companyNation": "미국",
+        "companyRegion": "샌프란시스코",
+        "position": "백엔드",
+        "compensation": 30000,
+        "content": "적극적인 뱍앤드 찾고 있습니다.",
+        "languageUsed": "JS",
+        "noticeList": [
+            9,
+            10
+        ]
+    }
+}
+```
