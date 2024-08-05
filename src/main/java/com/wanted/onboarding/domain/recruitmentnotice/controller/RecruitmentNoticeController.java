@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.*;
 public class RecruitmentNoticeController {
 
     private final RecruitmentNoticeService noticeService;
+    @GetMapping("/all")
+    public CommonResponse<?> getAllList(){
+       return CommonResponse.ok(noticeService.getAllList());
+    }
 
     @PostMapping
     public CommonResponse<Long> save(@Valid @RequestBody RecruitmentNoticeDto dto){

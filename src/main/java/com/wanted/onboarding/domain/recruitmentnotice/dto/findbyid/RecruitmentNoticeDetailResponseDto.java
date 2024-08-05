@@ -1,15 +1,14 @@
 package com.wanted.onboarding.domain.recruitmentnotice.dto.findbyid;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.wanted.onboarding.entity.RecruitmentNotice;
 import lombok.*;
 
 import java.util.List;
 
-@Getter
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class RecruitmentNoticeResponseDto {
+public class RecruitmentNoticeDetailResponseDto {
 
     private Long noticeId;
 
@@ -28,4 +27,15 @@ public class RecruitmentNoticeResponseDto {
     private String languageUsed;
 
     private List<Long> noticeList;
+
+    public RecruitmentNoticeDetailResponseDto(RecruitmentNotice notice){
+        this.noticeId = notice.getId();
+        this.companyName = notice.getCompany().getName();
+        this.companyNation = notice.getCompany().getNation();
+        this.companyRegion = notice.getCompany().getRegion();
+        this.position = notice.getPosition();
+        this.compensation = notice.getCompensation();
+        this.content = notice.getContent();
+        this.languageUsed = notice.getLanguageUsed();
+    }
 }

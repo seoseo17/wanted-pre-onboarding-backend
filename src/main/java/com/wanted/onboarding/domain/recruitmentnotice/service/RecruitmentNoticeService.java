@@ -2,6 +2,7 @@ package com.wanted.onboarding.domain.recruitmentnotice.service;
 
 import com.wanted.onboarding.common.exception.CustomException;
 import com.wanted.onboarding.domain.company.service.CompanyService;
+import com.wanted.onboarding.domain.recruitmentnotice.dto.findall.RecruitmentNoticeResponseDto;
 import com.wanted.onboarding.domain.recruitmentnotice.dto.save.RecruitmentNoticeDto;
 import com.wanted.onboarding.domain.recruitmentnotice.dto.update.RecruitmentNoticeUpdateDto;
 import com.wanted.onboarding.domain.recruitmentnotice.repository.RecruitmentNoticeRepository;
@@ -11,6 +12,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.wanted.onboarding.common.response.ErrorCode.RECRUITMENTNOTICE_NOT_FOUND;
 
@@ -25,6 +29,12 @@ public class RecruitmentNoticeService {
 
     public RecruitmentNotice findById(Long id){
         return noticeRepository.findById(id).orElseThrow(()-> new CustomException(RECRUITMENTNOTICE_NOT_FOUND));
+    }
+    @Transactional(readOnly = true)
+    public List<RecruitmentNoticeResponseDto> getAllList(){
+        List<RecruitmentNotice> notices = noticeRepository.findAll();
+
+        return notices.stream().map(RecruitmentNoticeResponseDto::new).collect(Collectors.toList());
     }
 
 
