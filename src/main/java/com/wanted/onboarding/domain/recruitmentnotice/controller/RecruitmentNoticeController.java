@@ -18,15 +18,20 @@ public class RecruitmentNoticeController {
 
     private final RecruitmentNoticeService noticeService;
 
-    @PostMapping("/save")
+    @PostMapping
     public CommonResponse<Long> save(@Valid @RequestBody RecruitmentNoticeDto dto){
         return CommonResponse.ok("공고가 등록되었습니다.", noticeService.save(dto)) ;
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public CommonResponse<Long> update(@PathVariable Long id,
                                        @Valid @RequestBody RecruitmentNoticeUpdateDto dto){
 
         return CommonResponse.ok("공고가 수정되었습니다.", noticeService.update(id,dto)) ;
+    }
+    @DeleteMapping("/{id}")
+    public CommonResponse<?> delete(@PathVariable Long id){
+        noticeService.delete(id);
+        return CommonResponse.ok("공고가 삭제되었습니다.");
     }
 }

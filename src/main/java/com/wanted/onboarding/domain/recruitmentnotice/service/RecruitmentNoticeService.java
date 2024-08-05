@@ -43,4 +43,9 @@ public class RecruitmentNoticeService {
         return notice.getId();
     }
 
+    public void delete(Long noticeId){
+        RecruitmentNotice notice = findById(noticeId);
+        noticeRepository.deleteById(notice.getId());
+    }
+
 }
