@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 
 import static com.wanted.onboarding.common.response.ErrorCode.COMPANY_NOT_FOUND;
 
@@ -17,6 +16,7 @@ import static com.wanted.onboarding.common.response.ErrorCode.COMPANY_NOT_FOUND;
 public class CompanyService {
 
     private final CompanyRepository companyRepository;
+
 
     public Company findById(Long companyId){
         return companyRepository.findById(companyId).orElseThrow(()-> new CustomException(COMPANY_NOT_FOUND));

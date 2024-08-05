@@ -2,11 +2,13 @@ package com.wanted.onboarding.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "recruitment_noitice")
+@Table(name = "recruitment_notice")
 @Getter
 @Builder
 @NoArgsConstructor
@@ -30,8 +32,10 @@ public class RecruitmentNotice {
 
     private String languageUsed;
 
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
+    @UpdateTimestamp
     private LocalDateTime updatedAt;
 
 }

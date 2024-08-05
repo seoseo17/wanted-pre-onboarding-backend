@@ -2,6 +2,7 @@ package com.wanted.onboarding.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -25,5 +26,6 @@ public class SupportDetails {
     @JoinColumn(name = "recruitmentNoticeId")
     private RecruitmentNotice recruitmentNotice;
 
+    @CreationTimestamp
     private LocalDateTime createdAt;
 }

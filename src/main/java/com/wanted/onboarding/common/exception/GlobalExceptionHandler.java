@@ -25,7 +25,14 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 public class GlobalExceptionHandler {
 
     private static final String ERROR_MESSAGE_DELIMITER = "," + System.lineSeparator();
-
+    @ExceptionHandler(value = CustomException.class)
+    public ResponseEntity<CommonResponse<Void>> handleCustomException(CustomException e) {
+        log.error("[CustomException] Message = {}", e.getMessage());
+        return new ResponseEntity<>(
+                CommonResponse.error(e.getErrorCode().getMessage()),
+                e.getErrorCode().getHttpStatus()
+        );
+    }
 
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public ResponseEntity<CommonResponse<Void>> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
