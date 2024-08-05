@@ -16,11 +16,17 @@ public enum ErrorCode {
     COMMON_ENTITY_NOT_FOUND(BAD_REQUEST, "존재하지 않는 엔티티입니다."),
     COMMON_JSON_PROCESSING_ERROR(BAD_REQUEST, "Json 변환 중 오류"),
 
+    //User
+    USER_NOT_FOUND(NOT_FOUND, "유저 정보가 존재하지 않습니다."),
+
     //Company
-    COMPANY_NOT_FOUND(NOT_FOUND, "회사 정보가 존재하지 않습니다"),
+    COMPANY_NOT_FOUND(NOT_FOUND, "회사 정보가 존재하지 않습니다,"),
     
     //RecruitmentNotice
-    RECRUITMENTNOTICE_NOT_FOUND(NOT_FOUND, "채용공고 정보가 존재하지 않습니다")
+    RECRUITMENTNOTICE_NOT_FOUND(NOT_FOUND, "채용공고 정보가 존재하지 않습니다,"),
+
+    //Support
+    DUPLICATE_SUPPORT(BAD_REQUEST,"이미 지원한 채용공고 입니다.")
 
 
     ;

@@ -21,7 +21,6 @@ public class RecruitmentNotice {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-
     @JoinColumn(name = "companyId")
     private Company company;
 

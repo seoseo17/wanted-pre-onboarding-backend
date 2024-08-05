@@ -23,7 +23,7 @@ public class SupportDetails {
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "recruitmentNoticeId")
+    @JoinColumn(name = "noticeId")
     private RecruitmentNotice recruitmentNotice;
 
     @CreationTimestamp

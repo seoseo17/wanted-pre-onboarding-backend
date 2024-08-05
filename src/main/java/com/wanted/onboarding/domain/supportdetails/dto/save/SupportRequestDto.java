@@ -1,4 +1,4 @@
-package com.wanted.onboarding.domain.supportdetails.dto;
+package com.wanted.onboarding.domain.supportdetails.dto.save;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -11,7 +11,7 @@ import lombok.*;
 public class SupportRequestDto {
 
     @NotNull(message = "채용공고 ID는 필수 값입니다.")
-    private Long notidId;
+    private Long noticeId;
 
     @NotNull(message = "사용자 ID는 필수 값입니다.")
     private Long userId;
