@@ -8,7 +8,7 @@
 
 
 # API
-## 채용공고 등록
+### 채용공고 등록
 `POST http://localhost:8080/api/recruitment-notice `
 
 **requestBody**
@@ -68,6 +68,7 @@
 
 ### 채용공고 삭제
 `DELETE http://localhost:8080/api/recruitment-notice/2 `
+
 **responseBody**
 ```
 {
@@ -81,5 +82,38 @@
     "status": "ERROR",
     "message": "채용공고 정보가 존재하지 않습니다",
     "data": null
+}
+```
+
+### 채용공고 목록
+`GET http://localhost:8080/api/recruitment-notice/all `
+
+**responseBody**
+```
+{
+    "status": "SUCCESS",
+    "message": null,
+    "data": [
+        {
+            "noticeId": 3,
+            "companyName": "원티드랩",
+            "companyNation": "한국",
+            "companyRegion": "서울",
+            "position": "백엔드 주니어",
+            "compensation": 100000,
+            "languageUsed": "python"
+        },
+ ...
+
+        {
+            "noticeId": 8,
+            "companyName": "구글",
+            "companyNation": "미국",
+            "companyRegion": "샌프란시스코",
+            "position": "백엔드",
+            "compensation": 30000,
+            "languageUsed": "python"
+        }
+    ]
 }
 ```
