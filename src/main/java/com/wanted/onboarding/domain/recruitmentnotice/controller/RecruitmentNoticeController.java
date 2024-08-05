@@ -22,6 +22,11 @@ public class RecruitmentNoticeController {
        return CommonResponse.ok(noticeService.getAllList());
     }
 
+    @GetMapping("/{id}")
+    public CommonResponse<?> getNoticeById(@PathVariable Long id){
+        return CommonResponse.ok(noticeService.getNoticeById(id));
+    }
+
     @PostMapping
     public CommonResponse<Long> save(@Valid @RequestBody RecruitmentNoticeDto dto){
         return CommonResponse.ok("공고가 등록되었습니다.", noticeService.save(dto)) ;

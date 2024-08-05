@@ -28,7 +28,7 @@ public class RecruitmentNoticeDetailResponseDto {
 
     private List<Long> noticeList;
 
-    public RecruitmentNoticeDetailResponseDto(RecruitmentNotice notice){
+    public RecruitmentNoticeDetailResponseDto(RecruitmentNotice notice, List<Long> notices){
         this.noticeId = notice.getId();
         this.companyName = notice.getCompany().getName();
         this.companyNation = notice.getCompany().getNation();
@@ -37,5 +37,6 @@ public class RecruitmentNoticeDetailResponseDto {
         this.compensation = notice.getCompensation();
         this.content = notice.getContent();
         this.languageUsed = notice.getLanguageUsed();
+        this.noticeList = notices;
     }
 }

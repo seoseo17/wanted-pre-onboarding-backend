@@ -3,6 +3,7 @@ package com.wanted.onboarding.domain.recruitmentnotice.service;
 import com.wanted.onboarding.common.exception.CustomException;
 import com.wanted.onboarding.domain.company.service.CompanyService;
 import com.wanted.onboarding.domain.recruitmentnotice.dto.findall.RecruitmentNoticeResponseDto;
+import com.wanted.onboarding.domain.recruitmentnotice.dto.findbyid.RecruitmentNoticeDetailResponseDto;
 import com.wanted.onboarding.domain.recruitmentnotice.dto.save.RecruitmentNoticeDto;
 import com.wanted.onboarding.domain.recruitmentnotice.dto.update.RecruitmentNoticeUpdateDto;
 import com.wanted.onboarding.domain.recruitmentnotice.repository.RecruitmentNoticeRepository;
@@ -36,7 +37,17 @@ public class RecruitmentNoticeService {
 
         return notices.stream().map(RecruitmentNoticeResponseDto::new).collect(Collectors.toList());
     }
+    @Transactional(readOnly = true)
+    public RecruitmentNoticeDetailResponseDto getNoticeById(Long noticeId){
+        // 1. 채용 공고 찾기
+        RecruitmentNotice notice = findById(noticeId);
 
+        // 2. 회사가 올린 공고 id 목록 만들기
+        List<Long> list = noticeRepository.findIdByCompanyId(notice.getCompany().getId())
+                .stream().filter(id -> id != noticeId).collect(Collectors.toList());
+
+        return new RecruitmentNoticeDetailResponseDto(notice,list);
+    }
 
     public Long save(RecruitmentNoticeDto dto){
         // 1. companyId로 company 조회
