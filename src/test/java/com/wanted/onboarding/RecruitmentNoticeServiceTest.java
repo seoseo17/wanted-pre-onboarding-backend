@@ -1,6 +1,6 @@
 package com.wanted.onboarding;
 
-import com.wanted.onboarding.domain.recruitmentnotice.dto.RecruitmentNoticeDto;
+import com.wanted.onboarding.domain.recruitmentnotice.dto.save.RecruitmentNoticeDto;
 import com.wanted.onboarding.domain.recruitmentnotice.repository.RecruitmentNoticeRepository;
 import com.wanted.onboarding.domain.recruitmentnotice.service.RecruitmentNoticeService;
 import com.wanted.onboarding.entity.Company;

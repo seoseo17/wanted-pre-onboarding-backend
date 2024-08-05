@@ -17,7 +17,10 @@ public enum ErrorCode {
     COMMON_JSON_PROCESSING_ERROR(BAD_REQUEST, "Json 변환 중 오류"),
 
     //Company
-    COMPANY_NOT_FOUND(NOT_FOUND, "회사 정보가 존재하지 않습니다")
+    COMPANY_NOT_FOUND(NOT_FOUND, "회사 정보가 존재하지 않습니다"),
+    
+    //RecruitmentNotice
+    RECRUITMENTNOTICE_NOT_FOUND(NOT_FOUND, "채용공고 정보가 존재하지 않습니다")
 
 
     ;

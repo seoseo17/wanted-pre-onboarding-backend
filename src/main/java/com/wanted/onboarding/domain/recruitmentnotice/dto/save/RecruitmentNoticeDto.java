@@ -1,4 +1,4 @@
-package com.wanted.onboarding.domain.recruitmentnotice.dto;
+package com.wanted.onboarding.domain.recruitmentnotice.dto.save;
 
 import com.wanted.onboarding.entity.Company;
 import com.wanted.onboarding.entity.RecruitmentNotice;
