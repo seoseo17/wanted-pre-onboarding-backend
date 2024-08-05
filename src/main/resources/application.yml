@@ -1,3 +1,13 @@
 spring:
-  application:
-    name: onboarding
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: none
+
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://43.201.108.242:3306/wanted?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+    username:
+    password:
