@@ -9,7 +9,7 @@
 
 # API
 ### 채용공고 등록
-`POST http://localhost:8080/api/recruitment-notice `
+`POST /api/recruitment-notice `
 
 **requestBody**
 ```
@@ -38,7 +38,7 @@
 ```
 
 ### 채용공고 수정
-`PUT http://localhost:8080/api/recruitment-notice/2 `
+`PUT /api/recruitment-notice/2 `
 
 **requestBody**
 ```
@@ -67,7 +67,7 @@
 ```
 
 ### 채용공고 삭제
-`DELETE http://localhost:8080/api/recruitment-notice/2 `
+`DELETE /api/recruitment-notice/2 `
 
 **responseBody**
 ```
@@ -86,7 +86,7 @@
 ```
 
 ### 채용공고 목록
-`GET http://localhost:8080/api/recruitment-notice/all `
+`GET /api/recruitment-notice/all `
 
 **responseBody**
 ```
@@ -119,7 +119,7 @@
 ```
 
 ### 채용공고 상세
-`GET http://localhost:8080/api/recruitment-notice/8 `
+`GET /api/recruitment-notice/8 `
 
 **responseBody**
 ```
@@ -139,6 +139,35 @@
             9,
             10
         ]
+    }
+}
+```
+### 사용자 공고 지원
+`POST /api/support-details`
+
+**requestBody**
+```
+{
+    "noticeId" : 9,
+    "userId": 1
+}
+```
+
+**responseBody**
+```
+{
+    "status": "SUCCESS",
+    "message": "지원이 완료되었습니다.",
+    "data": {
+        "supportId": 1,
+        "companyName": "구글",
+        "companyNation": "미국",
+        "companyRegion": "샌프란시스코",
+        "position": "백엔드",
+        "compensation": 30000,
+        "content": "적극적인 뱍앤드 찾고 있습니다.",
+        "languageUsed": "python",
+        "createdAt": "2024-08-06 00:40:40"
     }
 }
 ```
