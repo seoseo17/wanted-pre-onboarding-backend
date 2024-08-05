@@ -9,6 +9,8 @@
 
 # API
 ## 채용공고 등록
+`POST http://localhost:8080/api/recruitment-notice `
+
 **requestBody**
 ```
 {
@@ -36,6 +38,8 @@
 ```
 
 ### 채용공고 수정
+`PUT http://localhost:8080/api/recruitment-notice/2 `
+
 **requestBody**
 ```
 {
@@ -52,6 +56,24 @@
     "status": "SUCCESS",
     "message": "공고가 수정되었습니다.",
     "data": 2
+}
+
+//noticeId가 존재하지 않을 시
+{
+    "status": "ERROR",
+    "message": "채용공고 정보가 존재하지 않습니다",
+    "data": null
+}
+```
+
+### 채용공고 삭제
+`DELETE http://localhost:8080/api/recruitment-notice/2 `
+**responseBody**
+```
+{
+    "status": "SUCCESS",
+    "message": null,
+    "data": "공고가 삭제되었습니다."
 }
 
 //noticeId가 존재하지 않을 시
