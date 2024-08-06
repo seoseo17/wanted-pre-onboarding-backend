@@ -178,3 +178,35 @@
     "data": null
 }
 ```
+### 채용 공고 검색
+`GET /api/recruitment-notice?search=백엔드`
+
+**responseBody**
+```
+{
+    "status": "SUCCESS",
+    "message": " 6 건이 검색되었습니다.",
+    "data": [
+        {
+            "noticeId": 3,
+            "companyName": "원티드랩",
+            "companyNation": "한국",
+            "companyRegion": "서울",
+            "position": "백엔드 주니어",
+            "compensation": 100000,
+            "languageUsed": "python"
+        },
+        ...
+        {
+            "noticeId": 9,
+            "companyName": "구글",
+            "companyNation": "미국",
+            "companyRegion": "샌프란시스코",
+            "position": "백엔드",
+            "compensation": 30000,
+            "languageUsed": "python"
+        }
+    ]
+}
+
+```
