@@ -69,4 +69,21 @@ public class RecruitmentNoticeService {
         noticeRepository.deleteById(notice.getId());
     }
 
+    public List<RecruitmentNoticeResponseDto> search(String param){
+
+        //1. 검색어가 포함되어 있는 채용공고 찾기
+        List<RecruitmentNotice> results = noticeRepository.findByPositionContaining(param);
+        if (results.isEmpty()){
+            results = noticeRepository.findByLanguageUsedContaining(param);
+        }
+        if (results.isEmpty()){
+            results = noticeRepository.findByCompanyName(param);
+        }
+        if (results.isEmpty()){
+            results = noticeRepository.findByCompanyRegion(param);
+        }
+
+        return results.stream().map(RecruitmentNoticeResponseDto::new).collect(Collectors.toList());
+    }
+
 }

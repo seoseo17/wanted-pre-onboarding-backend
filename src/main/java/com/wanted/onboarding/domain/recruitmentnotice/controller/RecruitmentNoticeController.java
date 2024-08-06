@@ -1,6 +1,7 @@
 package com.wanted.onboarding.domain.recruitmentnotice.controller;
 
 import com.wanted.onboarding.common.response.CommonResponse;
+import com.wanted.onboarding.domain.recruitmentnotice.dto.findall.RecruitmentNoticeResponseDto;
 import com.wanted.onboarding.domain.recruitmentnotice.dto.save.RecruitmentNoticeDto;
 import com.wanted.onboarding.domain.recruitmentnotice.dto.update.RecruitmentNoticeUpdateDto;
 import com.wanted.onboarding.domain.recruitmentnotice.service.RecruitmentNoticeService;
@@ -8,6 +9,8 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -42,5 +45,12 @@ public class RecruitmentNoticeController {
     public CommonResponse<?> delete(@PathVariable Long id){
         noticeService.delete(id);
         return CommonResponse.ok("공고가 삭제되었습니다.");
+    }
+
+    @GetMapping()
+    public CommonResponse<?> search(@RequestParam String search){
+        List<RecruitmentNoticeResponseDto> list = noticeService.search(search);
+        String message = String.format(" %d 건이 검색되었습니다.",list.size());
+        return CommonResponse.ok(message,list);
     }
 }
